@@ -5,7 +5,7 @@
 $Title = 'Rename default datastore'
 
 # Test description: How New-VesterConfig explains this value to the user
-$Description = 'default datastore starts with datastore* name which has to be changed to hostname specific datastore'
+$Description = 'The default datastore name can be changed to hostname specific datastore'
 
 # The config entry stating the desired values
 $Desired = $cfg.host.renamedefaultdatastore
@@ -23,7 +23,7 @@ $Type = 'bool'
 #(Get-VMHost -name $object | Get-Datastore).name -like 'datastore*'
 
 [ScriptBlock]$Actual = {
-    If ((Get-VMHost -name $object | Get-Datastore).Name -like 'datasore*') {$true}
+    If ((Get-VMHost -name $object | Get-Datastore).Name -like 'datastore*') {$true}
     Else {$false}
 }
 
